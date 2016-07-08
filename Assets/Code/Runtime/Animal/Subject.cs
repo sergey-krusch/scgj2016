@@ -1,31 +1,76 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class Subject: MonoBehaviour
+namespace Animal
 {
-    public GameObject EmptyState;
-    public GameObject NormalState;
-    public GameObject FullState;
-
-    public float EmptyNormalBound;
-    public float NormalFullBound;
-
-    public float Value;
-
-    public void Update()
+    public class Subject: MonoBehaviour
     {
-        if (Value < EmptyNormalBound)
-            SwitchTo(EmptyState);
-        else if (Value < NormalFullBound)
-            SwitchTo(NormalState);
-        else
-            SwitchTo(FullState);
-    }
+        public float EndX;
+        public float WaterX;
+        public float TowardsWaterSpeed;
+        public float FromWaterSpeed;
+        public float ShrinkingSpeed;
+        public float GrowingSpeed;
+        public float ConsumingSpeed;
+        public float WaitTime;
 
-    private void SwitchTo(GameObject go)
-    {
-        EmptyState.SetActive(false);
-        NormalState.SetActive(false);
-        FullState.SetActive(false);
-        go.SetActive(true);
+        public float Value;
+        public Visual Visual;
+        public WaterTank WaterTank;
+
+        public event Action TappedEvent;
+
+        public void Start()
+        {
+            SwitchToTowardsWaterState();
+        }
+
+        public void Update()
+        {
+            Value -= ShrinkingSpeed * Time.deltaTime;
+            Visual.Value = Value;
+        }
+
+        public void OnMouseDown()
+        {
+            ActionInvoker.Invoke(TappedEvent);
+        }
+
+        public void Grow(float amount)
+        {
+            Value += amount;
+        }
+
+        public void SwitchToTowardsWaterState()
+        {
+            DeinitializeCurrentState();
+            gameObject.AddComponent<TowardsWaterState>().Initialize(this);
+        }
+
+        public void SwitchToDrinkState()
+        {
+            DeinitializeCurrentState();
+            gameObject.AddComponent<DrinkState>().Initialize(this);
+        }
+
+        public void SwitchToFromWaterState()
+        {
+            DeinitializeCurrentState();
+            gameObject.AddComponent<FromWaterState>().Initialize(this);
+        }
+
+        public void SwitchToWaitState()
+        {
+            DeinitializeCurrentState();
+            gameObject.AddComponent<WaitState>().Initialize(this);
+        }
+
+        private void DeinitializeCurrentState()
+        {
+            var cs = GetComponent<State>();
+            if (cs == null)
+                return;
+            cs.Deinitialize();
+        }
     }
 }

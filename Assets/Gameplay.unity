@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efbb83a659870e7468e73919243edaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialWaterLevel: 1
-  WaterLevelDropRate: 0.1
+  InitialWaterLevel: 0.25
+  WaterLevelDropRate: 0
   WaterTank: {fileID: 2086823982}
 --- !u!4 &152353967
 Transform:
@@ -314,6 +314,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 480132855}
   - 114: {fileID: 480132856}
+  - 114: {fileID: 480132857}
+  - 61: {fileID: 480132858}
   m_Layer: 0
   m_Name: Animal
   m_TagString: Untagged
@@ -348,12 +350,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ff5d1f3125d7a4bb13c839ca9bc670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EndX: -6
+  WaterX: 1.5
+  TowardsWaterSpeed: 1
+  FromWaterSpeed: 2
+  ShrinkingSpeed: 0.025
+  GrowingSpeed: 0.05
+  ConsumingSpeed: 0.025
+  WaitTime: 1
+  Value: 0.5
+  Visual: {fileID: 480132857}
+  WaterTank: {fileID: 2086823982}
+--- !u!114 &480132857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 480132854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad5d6381ffb8024cbef5047795c4b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   EmptyState: {fileID: 285333138}
   NormalState: {fileID: 1545541013}
   FullState: {fileID: 1369615444}
   EmptyNormalBound: 0.25
   NormalFullBound: 0.75
   Value: 0
+--- !u!61 &480132858
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 480132854}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.061509132, y: 0.6027942}
+  serializedVersion: 2
+  m_Size: {x: 2.107172, y: 2.2055883}
 --- !u!1 &929578858
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +783,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086823979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
