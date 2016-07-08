@@ -1,22 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Gameplay: MonoBehaviour
 {
     public float InitialWaterLevel;
-    public float WaterLevelDropRate;
-
     public WaterTank WaterTank;
+    public Animal.Subject Animal;
 
     public void Awake()
     {
         WaterTank.WaterLevel = InitialWaterLevel;
+        Animal.DiedEvent += s =>
+        {
+            GameOver.Reason = s;
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        };
     }
 
-    public void Update()
+    public void ReplayClick()
     {
-        var wl = WaterTank.WaterLevel;
-        wl -= WaterLevelDropRate * Time.deltaTime;
-        WaterTank.WaterLevel = Mathf.Clamp01(wl);
+        SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
     }
-
 }

@@ -19,6 +19,7 @@ namespace Animal
         public WaterTank WaterTank;
 
         public event Action TappedEvent;
+        public event Action<string> DiedEvent;
 
         public void Start()
         {
@@ -28,6 +29,8 @@ namespace Animal
         public void Update()
         {
             Value -= ShrinkingSpeed * Time.deltaTime;
+            if (Value < 0.0f)
+                ActionInvoker.Invoke(DiedEvent, "Exhausted =(");
             Visual.Value = Value;
         }
 
@@ -39,6 +42,8 @@ namespace Animal
         public void Grow(float amount)
         {
             Value += amount;
+            if (Value > 1.0f)
+                ActionInvoker.Invoke(DiedEvent, "Exploded :D");
         }
 
         public void SwitchToTowardsWaterState()
