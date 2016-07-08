@@ -15,15 +15,20 @@ public class WaterTank: MonoBehaviour
         progressBar.Value = WaterLevel;
     }
 
-    public float Consume(float target)
+    public float Consume(float amount)
     {
-        if (target >= WaterLevel)
+        if (amount >= WaterLevel)
         {
             var result = WaterLevel;
             WaterLevel = 0;
             return result;
         }
-        WaterLevel -= target;
-        return target;
+        WaterLevel -= amount;
+        return amount;
+    }
+
+    public void Produce(float amount)
+    {
+        WaterLevel = Mathf.Clamp01(WaterLevel + amount);
     }
 }
