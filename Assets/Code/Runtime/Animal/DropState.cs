@@ -5,7 +5,6 @@ namespace Animal
 {
     public class DropState : State
     {
-        private const float gravity = 6.0f;
         private float velocity;
         private bool finished;
 
@@ -18,7 +17,8 @@ namespace Animal
         {
             if (finished)
                 return;
-            velocity += gravity * Time.fixedDeltaTime;
+            var g = Root.Instance.Animal.Gravity;
+            velocity += g * Time.fixedDeltaTime;
             var p = Subject.transform.localPosition;
             p.y -= velocity;
             if (p.y <= 0.0f)

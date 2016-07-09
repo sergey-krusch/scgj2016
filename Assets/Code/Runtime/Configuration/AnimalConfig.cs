@@ -15,5 +15,6 @@ namespace Configuration
         public float WaitTime;
         public float EmptyNormalBound;
         public float NormalFullBound;
+        public float Gravity;
     }
 }
