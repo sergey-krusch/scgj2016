@@ -24,9 +24,9 @@ MonoBehaviour:
     - {r: 1, g: 0, b: 0, a: 1}
     TowardsWaterSpeed: 2
     FromWaterSpeed: 6
-    ShrinkingSpeed: 0.05
-    GrowingSpeed: 0.3
-    ConsumingSpeed: 0.025
+    ShrinkingSpeed: 0.075
+    GrowingSpeed: 0.325
+    ConsumingSpeed: 0.05
     WaitTime: 1
     EmptyNormalBound: 0.25
     NormalFullBound: 0.75
