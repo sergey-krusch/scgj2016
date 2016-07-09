@@ -13,6 +13,7 @@ namespace Animal
             base.Initialize(subject);
             dragStartSubjectPosition = subject.transform.position;
             dragStartMousePosition = GetWorldMousePos();
+            AudioPlayer.Drag();
         }
 
         public override void Deinitialize()

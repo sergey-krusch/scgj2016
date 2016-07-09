@@ -6,5 +6,6 @@ namespace Configuration
     public class AudioConfig
     {
         public float DrinkLoopLength;
+        public float DropSoundVelocity;
     }
 }

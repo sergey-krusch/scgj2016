@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Configuration;
+using UnityEngine;
 
 namespace Animal
 {
@@ -22,6 +23,8 @@ namespace Animal
             p.y -= velocity;
             if (p.y <= 0.0f)
             {
+                if (velocity > Root.Instance.Audio.DropSoundVelocity)
+                    AudioPlayer.Drop();
                 finished = true;
                 p.y = 0.0f;
                 GoToNextState();

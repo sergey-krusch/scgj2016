@@ -18,4 +18,14 @@ public static class AudioPlayer
     {
         AudioOut.Instance.PlaySound("Audio/Sound/Drink01", 1.0f, 0.0f);
     }
+
+    public static void Drag()
+    {
+        AudioOut.Instance.PlaySound("Audio/Sound/Drag", 1.0f, 0.0f);
+    }
+
+    public static void Drop()
+    {
+        AudioOut.Instance.PlaySound("Audio/Sound/Drop", 1.0f, 0.0f);
+    }
 }

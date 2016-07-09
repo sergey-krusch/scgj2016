@@ -41,4 +41,5 @@ MonoBehaviour:
     DeadScore: -20
   Audio:
     DrinkLoopLength: 1
+    DropSoundVelocity: 0.25
   DeveloperMode: 0
