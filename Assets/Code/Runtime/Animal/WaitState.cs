@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Configuration;
+using UnityEngine;
 
 namespace Animal
 {
@@ -9,7 +10,8 @@ namespace Animal
         public override void Initialize(Subject subject)
         {
             base.Initialize(subject);
-            remainingTime = subject.WaitTime;
+            var cfg = Root.Instance.Animal;
+            remainingTime = cfg.WaitTime;
         }
 
         public void Update()

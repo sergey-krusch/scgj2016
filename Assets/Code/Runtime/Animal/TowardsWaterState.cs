@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Configuration;
+using UnityEngine;
 
 namespace Animal
 {
@@ -18,8 +19,9 @@ namespace Animal
 
         public void Update()
         {
+            var cfg = Root.Instance.Animal;
             var p = Subject.transform.position;
-            p.x += Subject.TowardsWaterSpeed * Time.deltaTime;
+            p.x += cfg.TowardsWaterSpeed * Time.deltaTime;
             if (p.x >= Subject.WaterX)
             {
                 p.x = Subject.WaterX;

@@ -1,4 +1,5 @@
 ﻿using System;
+using Configuration;
 using UnityEngine;
 
 namespace Animal
@@ -7,12 +8,6 @@ namespace Animal
     {
         public float EndX;
         public float WaterX;
-        public float TowardsWaterSpeed;
-        public float FromWaterSpeed;
-        public float ShrinkingSpeed;
-        public float GrowingSpeed;
-        public float ConsumingSpeed;
-        public float WaitTime;
 
         public float Value;
         public Visual Visual;
@@ -28,7 +23,8 @@ namespace Animal
 
         public void Update()
         {
-            Value -= ShrinkingSpeed * Time.deltaTime;
+            var cfg = Root.Instance.Animal;
+            Value -= cfg.ShrinkingSpeed * Time.deltaTime;
             if (Value < 0.0f)
                 ActionInvoker.Invoke(DiedEvent, "Exhausted =(");
             Visual.Value = Value;
