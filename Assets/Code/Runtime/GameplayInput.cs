@@ -35,6 +35,6 @@ public class GameplayInput: MonoBehaviour
             }
         }
         if (bestAnimal != null)
-            bestAnimal.SignalTap();
+            bestAnimal.SignalTapDown();
     }
 }

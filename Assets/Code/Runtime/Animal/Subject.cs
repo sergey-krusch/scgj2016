@@ -29,7 +29,7 @@ namespace Animal
             Visual.Value = Value;
         }
 
-        public void SignalTap()
+        public void SignalTapDown()
         {
             ActionInvoker.Invoke(TappedEvent);
         }
@@ -63,6 +63,18 @@ namespace Animal
         {
             DeinitializeCurrentState();
             gameObject.AddComponent<WaitState>().Initialize(this);
+        }
+
+        public void SwitchToDragState()
+        {
+            DeinitializeCurrentState();
+            gameObject.AddComponent<DragState>().Initialize(this);
+        }
+
+        public void SwitchToDropState()
+        {
+            DeinitializeCurrentState();
+            gameObject.AddComponent<DropState>().Initialize(this);
         }
 
         public void SwitchToDeadState()

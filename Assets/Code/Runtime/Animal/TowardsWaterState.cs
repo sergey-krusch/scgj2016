@@ -32,7 +32,7 @@ namespace Animal
 
         private void Tapped()
         {
-            Subject.SwitchToFromWaterState();
+            Subject.SwitchToDragState();
         }
     }
 }
