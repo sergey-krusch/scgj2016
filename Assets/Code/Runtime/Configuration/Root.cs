@@ -7,6 +7,7 @@ namespace Configuration
     {
         public const string ResourcePath = "DefaultSettings";
 
+        public float LevelTime;
         public float InitialWaterLevel;
         public float AnimalSpawnInterval;
         public AnimalConfig Animal;
