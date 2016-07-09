@@ -30,7 +30,7 @@ namespace Animal
             Visual.Value = Value;
         }
 
-        public void OnMouseDown()
+        public void SignalTap()
         {
             ActionInvoker.Invoke(TappedEvent);
         }
