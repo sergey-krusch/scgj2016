@@ -15,11 +15,13 @@ public class Gameplay: MonoBehaviour
     private bool started;
     private float time;
     private float spawnRemainingTime;
+    private int animalsAlive;
     private List<Animal.Subject> animals;
 
     public void Awake()
     {
         started = false;
+        animalsAlive = 0;
         animals = new List<Animal.Subject>();
         WaterTank.WaterLevel = Root.Instance.InitialWaterLevel;
         Digger.TappedEvent += Begin;
@@ -85,7 +87,13 @@ public class Gameplay: MonoBehaviour
         t.localPosition = Vector3.zero;
         var a = o.GetComponent<Animal.Subject>();
         a.WaterTank = WaterTank;
+        a.DiedEvent += () =>
+        {
+            if (--animalsAlive < 1)
+                spawnRemainingTime = 0.0f;
+        };
         animals.Add(a);
+        ++animalsAlive;
     }
 
     private void GameOver()

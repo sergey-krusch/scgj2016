@@ -14,6 +14,14 @@ namespace Animal
         public WaterTank WaterTank;
 
         public event Action TappedEvent;
+        public event Action DiedEvent;
+
+        private bool dead;
+
+        public void Awake()
+        {
+            dead = false;
+        }
 
         public void Start()
         {
@@ -25,7 +33,7 @@ namespace Animal
             var cfg = Root.Instance.Animal;
             Value -= cfg.ShrinkingSpeed * Time.deltaTime;
             if (Value < 0.0f)
-                SwitchToDeadState();
+                Die();
             Visual.Value = Value;
         }
 
@@ -38,7 +46,7 @@ namespace Animal
         {
             Value += amount;
             if (Value > 1.0f)
-                SwitchToDeadState();
+                Die();
         }
 
         public void SwitchToTowardsWaterState()
@@ -51,12 +59,6 @@ namespace Animal
         {
             DeinitializeCurrentState();
             gameObject.AddComponent<DrinkState>().Initialize(this);
-        }
-
-        public void SwitchToFromWaterState()
-        {
-            DeinitializeCurrentState();
-            gameObject.AddComponent<FromWaterState>().Initialize(this);
         }
 
         public void SwitchToWaitState()
@@ -89,6 +91,15 @@ namespace Animal
             if (cs == null)
                 return;
             cs.Deinitialize();
+        }
+
+        private void Die()
+        {
+            if (dead)
+                return;
+            dead = true;
+            ActionInvoker.Invoke(DiedEvent);
+            SwitchToDeadState();
         }
     }
 }
