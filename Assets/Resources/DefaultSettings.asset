@@ -11,16 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c494fe98b5a9fe047ac690de38def9b2, type: 3}
   m_Name: DefaultSettings
   m_EditorClassIdentifier: 
-  InitialWaterLevel: 0.5
+  InitialWaterLevel: 0
   Animal:
-    TowardsWaterSpeed: 1
-    FromWaterSpeed: 2
-    ShrinkingSpeed: 0.025
-    GrowingSpeed: 0.05
+    TowardsWaterSpeed: 2
+    FromWaterSpeed: 6
+    ShrinkingSpeed: 0.05
+    GrowingSpeed: 0.3
     ConsumingSpeed: 0.025
     WaitTime: 1
   Digger:
-    Speed: 1
+    Speed: 3
     DigTime: 5
     ProducingRate: 0.05
   DeveloperMode: 0

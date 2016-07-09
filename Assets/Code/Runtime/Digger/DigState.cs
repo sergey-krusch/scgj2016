@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Configuration;
+using UnityEngine;
 
 namespace Digger
 {
@@ -9,13 +10,13 @@ namespace Digger
         public override void Initialize(Subject subject)
         {
             base.Initialize(subject);
-            remainingTime = subject.DigTime;
+            remainingTime = Root.Instance.Digger.DigTime;
             Subject.Visual.Dig();
         }
 
         public void Update()
         {
-            Subject.WaterTank.Produce(Subject.ProducingRate * Time.deltaTime);
+            Subject.WaterTank.Produce(Root.Instance.Digger.ProducingRate * Time.deltaTime);
             remainingTime -= Time.deltaTime;
             if (remainingTime <= 0.0f)
                 Subject.SwitchToWalkState();

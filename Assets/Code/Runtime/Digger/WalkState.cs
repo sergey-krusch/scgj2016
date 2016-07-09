@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Configuration;
+using UnityEngine;
 
 namespace Digger
 {
@@ -19,8 +20,9 @@ namespace Digger
 
         public void Update()
         {
+            var cfg = Root.Instance.Digger;
             var p = Subject.transform.position;
-            p.x += Subject.Direction * Subject.Speed * Time.deltaTime;
+            p.x += Subject.Direction * cfg.Speed * Time.deltaTime;
             if (p.x >= Subject.MaxX)
             {
                 p.x = Subject.MaxX;

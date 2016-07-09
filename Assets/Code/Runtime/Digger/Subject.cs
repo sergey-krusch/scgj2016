@@ -7,9 +7,6 @@ namespace Digger
     {
         public float MinX;
         public float MaxX;
-        public float Speed;
-        public float DigTime;
-        public float ProducingRate;
 
         public Visual Visual;
         public WaterTank WaterTank;
