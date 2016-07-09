@@ -8,6 +8,7 @@ namespace Configuration
         public const string ResourcePath = "DefaultSettings";
 
         public float InitialWaterLevel;
+        public float AnimalSpawnInterval;
         public AnimalConfig Animal;
         public DiggerConfig Digger;
         public bool DeveloperMode;

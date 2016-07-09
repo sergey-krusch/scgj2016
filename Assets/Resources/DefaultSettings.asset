@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: DefaultSettings
   m_EditorClassIdentifier: 
   InitialWaterLevel: 0
+  AnimalSpawnInterval: 15
   Animal:
     TowardsWaterSpeed: 2
     FromWaterSpeed: 6
@@ -20,7 +21,7 @@ MonoBehaviour:
     ConsumingSpeed: 0.025
     WaitTime: 1
   Digger:
-    Speed: 3
+    Speed: 0
     DigTime: 5
     ProducingRate: 0.05
   DeveloperMode: 0
