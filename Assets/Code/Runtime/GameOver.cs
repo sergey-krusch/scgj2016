@@ -6,11 +6,11 @@ public class GameOver: MonoBehaviour
 {
     public static string Reason;
 
-    public Text ReasonLabel;
+    public Text ScoreLabel;
 
     public void Awake()
     {
-        ReasonLabel.text = Reason;
+        ScoreLabel.text = string.Format(ScoreLabel.text, Session.Score);
     }
 
     public void Update()

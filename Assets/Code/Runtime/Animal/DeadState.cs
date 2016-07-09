@@ -9,6 +9,7 @@ namespace Animal
         {
             base.Initialize(subject);
             subject.Visual.Dead = true;
+            subject.Value = -1.0f;
         }
     }
 }

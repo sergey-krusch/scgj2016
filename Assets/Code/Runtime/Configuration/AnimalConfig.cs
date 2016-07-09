@@ -13,5 +13,7 @@ namespace Configuration
         public float GrowingSpeed;
         public float ConsumingSpeed;
         public float WaitTime;
+        public float EmptyNormalBound;
+        public float NormalFullBound;
     }
 }

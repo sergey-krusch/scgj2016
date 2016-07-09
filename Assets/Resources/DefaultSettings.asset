@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c494fe98b5a9fe047ac690de38def9b2, type: 3}
   m_Name: DefaultSettings
   m_EditorClassIdentifier: 
-  LevelTime: 180
+  LevelTime: 8
   InitialWaterLevel: 0
   AnimalSpawnInterval: 15
   Animal:
@@ -28,8 +28,15 @@ MonoBehaviour:
     GrowingSpeed: 0.3
     ConsumingSpeed: 0.025
     WaitTime: 1
+    EmptyNormalBound: 0.25
+    NormalFullBound: 0.75
   Digger:
     Speed: 0
     DigTime: 5
     ProducingRate: 0.05
+  Score:
+    EmptyScore: 20
+    NormalScore: 50
+    FullScore: 20
+    DeadScore: -20
   DeveloperMode: 0

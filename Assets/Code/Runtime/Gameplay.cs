@@ -1,4 +1,5 @@
-﻿using Configuration;
+﻿using System.Collections.Generic;
+using Configuration;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,10 +15,12 @@ public class Gameplay: MonoBehaviour
     private bool started;
     private float time;
     private float spawnRemainingTime;
+    private List<Animal.Subject> animals;
 
     public void Awake()
     {
         started = false;
+        animals = new List<Animal.Subject>();
         WaterTank.WaterLevel = Root.Instance.InitialWaterLevel;
         Digger.TappedEvent += Begin;
     }
@@ -25,7 +28,7 @@ public class Gameplay: MonoBehaviour
     public void Update()
     {
         HandleSpawn();
-        time -= Time.deltaTime;
+        HandleTime();
         TimeLabel.text = FormatTime();
     }
 
@@ -34,9 +37,20 @@ public class Gameplay: MonoBehaviour
         SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
     }
 
+    private void HandleTime()
+    {
+        if (!started)
+            return;
+        time -= Time.deltaTime;
+        if (time < 0)
+            GameOver();
+    }
+
     private string FormatTime()
     {
         int t = Mathf.FloorToInt(time);
+        if (t < 0)
+            t = 0;
         int m = t / 60;
         int s = t % 60;
         return string.Format("{0:00}:{1:00}", m, s);
@@ -71,5 +85,27 @@ public class Gameplay: MonoBehaviour
         t.position = Vector3.zero;
         var a = o.GetComponent<Animal.Subject>();
         a.WaterTank = WaterTank;
+        animals.Add(a);
+    }
+
+    private void GameOver()
+    {
+        var scfg = Root.Instance.Score;
+        var acfg = Root.Instance.Animal;
+        int s = 0;
+        foreach (var a in animals)
+        {
+            var c = a.Value;
+            if (c < 0)
+                s += scfg.DeadScore;
+            else if (c < acfg.EmptyNormalBound)
+                s += scfg.EmptyScore;
+            else if (c < acfg.NormalFullBound)
+                s += scfg.NormalScore;
+            else
+                s += scfg.FullScore;
+        }
+        Session.Score = s;
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 }

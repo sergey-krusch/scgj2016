@@ -12,6 +12,7 @@ namespace Configuration
         public float AnimalSpawnInterval;
         public AnimalConfig Animal;
         public DiggerConfig Digger;
+        public ScoreConfig Score;
         public bool DeveloperMode;
 
         private static Root instance;

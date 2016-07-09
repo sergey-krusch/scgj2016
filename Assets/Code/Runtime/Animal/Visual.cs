@@ -10,9 +10,6 @@ namespace Animal
         public GameObject FullState;
         public GameObject DeadState;
 
-        public float EmptyNormalBound;
-        public float NormalFullBound;
-
         public bool Dead;
         public float Value;
 
@@ -29,11 +26,12 @@ namespace Animal
 
         public void Update()
         {
+            var cfg = Root.Instance.Animal;
             if (Dead)
                 SwitchTo(DeadState);
-            else if (Value < EmptyNormalBound)
+            else if (Value < cfg.EmptyNormalBound)
                 SwitchTo(EmptyState);
-            else if (Value < NormalFullBound)
+            else if (Value < cfg.NormalFullBound)
                 SwitchTo(NormalState);
             else
                 SwitchTo(FullState);
