@@ -32,8 +32,8 @@ MonoBehaviour:
     NormalFullBound: 0.75
   Digger:
     Speed: 0
-    DigTime: 5
-    ProducingRate: 0.05
+    DigTime: 0.1
+    ProducingRate: 0.35
   Score:
     EmptyScore: 20
     NormalScore: 50
