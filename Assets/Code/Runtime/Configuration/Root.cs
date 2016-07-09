@@ -8,6 +8,7 @@ namespace Configuration
         public const string ResourcePath = "DefaultSettings";
 
         public AnimalConfig Animal;
+        public DiggerConfig Digger;
         public bool DeveloperMode;
 
         private static Root instance;

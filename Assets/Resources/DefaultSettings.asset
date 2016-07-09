@@ -18,4 +18,8 @@ MonoBehaviour:
     GrowingSpeed: 0.05
     ConsumingSpeed: 0.025
     WaitTime: 1
+  Digger:
+    Speed: 1
+    DigTime: 5
+    ProducingRate: 0.05
   DeveloperMode: 0
