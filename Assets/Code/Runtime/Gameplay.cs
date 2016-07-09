@@ -27,6 +27,11 @@ public class Gameplay: MonoBehaviour
         Digger.TappedEvent += Begin;
     }
 
+    public void Start()
+    {
+        AudioPlayer.Music();
+    }
+
     public void Update()
     {
         HandleSpawn();
