@@ -10,8 +10,15 @@ namespace Animal
         public override void Initialize(Subject subject)
         {
             base.Initialize(subject);
+            subject.TappedEvent += Tapped;
             var cfg = Root.Instance.Animal;
             remainingTime = cfg.WaitTime;
+        }
+
+        public override void Deinitialize()
+        {
+            base.Deinitialize();
+            Subject.TappedEvent -= Tapped;
         }
 
         public void Update()
@@ -19,6 +26,11 @@ namespace Animal
             remainingTime -= Time.deltaTime;
             if (remainingTime <= 0.0f)
                 Subject.SwitchToTowardsWaterState();
+        }
+
+        private void Tapped()
+        {
+            Subject.SwitchToTowardsWaterState();
         }
     }
 }

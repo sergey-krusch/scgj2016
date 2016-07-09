@@ -5,6 +5,18 @@ namespace Animal
 {
     public class FromWaterState : State
     {
+        public override void Initialize(Subject subject)
+        {
+            base.Initialize(subject);
+            subject.TappedEvent += Tapped;
+        }
+
+        public override void Deinitialize()
+        {
+            base.Deinitialize();
+            Subject.TappedEvent -= Tapped;
+        }
+
         public void Update()
         {
             var cfg = Root.Instance.Animal;
@@ -16,6 +28,11 @@ namespace Animal
                 Subject.SwitchToWaitState();
             }
             Subject.transform.position = p;
+        }
+
+        private void Tapped()
+        {
+            Subject.SwitchToTowardsWaterState();
         }
     }
 }
