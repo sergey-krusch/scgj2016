@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Configuration;
+using UnityEngine;
 
 namespace Animal
 {
@@ -14,6 +15,17 @@ namespace Animal
 
         public bool Dead;
         public float Value;
+
+        public void Awake()
+        {
+            var cfg = Root.Instance.Animal;
+            var i = Random.Range(0, cfg.Colors.Length);
+            var c = cfg.Colors[i];
+            SetColor(EmptyState, c);
+            SetColor(NormalState, c);
+            SetColor(FullState, c);
+            SetColor(DeadState, c);
+        }
 
         public void Update()
         {
@@ -34,6 +46,11 @@ namespace Animal
             FullState.SetActive(false);
             DeadState.SetActive(false);
             go.SetActive(true);
+        }
+
+        private void SetColor(GameObject o, Color c)
+        {
+            o.GetComponent<SpriteRenderer>().color = c;
         }
     }
 }
