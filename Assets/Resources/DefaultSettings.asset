@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c494fe98b5a9fe047ac690de38def9b2, type: 3}
   m_Name: DefaultSettings
   m_EditorClassIdentifier: 
+  InitialWaterLevel: 0.5
   Animal:
     TowardsWaterSpeed: 1
     FromWaterSpeed: 2

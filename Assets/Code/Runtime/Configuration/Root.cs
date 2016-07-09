@@ -7,6 +7,7 @@ namespace Configuration
     {
         public const string ResourcePath = "DefaultSettings";
 
+        public float InitialWaterLevel;
         public AnimalConfig Animal;
         public DiggerConfig Digger;
         public bool DeveloperMode;
