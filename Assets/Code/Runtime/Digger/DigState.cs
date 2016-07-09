@@ -12,6 +12,7 @@ namespace Digger
             base.Initialize(subject);
             remainingTime = Root.Instance.Digger.DigTime;
             Subject.Visual.Dig();
+            AudioPlayer.Dig();
         }
 
         public void Update()
