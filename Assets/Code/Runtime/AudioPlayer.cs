@@ -13,4 +13,9 @@ public static class AudioPlayer
     {
         AudioOut.Instance.PlaySound("Audio/Sound/Dig", 1.0f, 0.0f);
     }
+
+    public static void Drink()
+    {
+        AudioOut.Instance.PlaySound("Audio/Sound/Drink01", 1.0f, 0.0f);
+    }
 }

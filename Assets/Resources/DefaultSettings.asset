@@ -39,4 +39,6 @@ MonoBehaviour:
     NormalScore: 50
     FullScore: 20
     DeadScore: -20
+  Audio:
+    DrinkLoopLength: 1
   DeveloperMode: 0

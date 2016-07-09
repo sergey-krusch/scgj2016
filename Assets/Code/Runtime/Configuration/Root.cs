@@ -13,6 +13,7 @@ namespace Configuration
         public AnimalConfig Animal;
         public DiggerConfig Digger;
         public ScoreConfig Score;
+        public AudioConfig Audio;
         public bool DeveloperMode;
 
         private static Root instance;
