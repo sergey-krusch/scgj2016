@@ -82,7 +82,7 @@ public class Gameplay: MonoBehaviour
         var o = Instantiate(AnimalPrefab);
         var t = o.transform;
         t.SetParent(AnimalContainer, false);
-        t.position = Vector3.zero;
+        t.localPosition = Vector3.zero;
         var a = o.GetComponent<Animal.Subject>();
         a.WaterTank = WaterTank;
         animals.Add(a);
