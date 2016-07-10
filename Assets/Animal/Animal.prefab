@@ -414,7 +414,7 @@ GameObject:
   - 114: {fileID: 11472618}
   - 61: {fileID: 6142076}
   m_Layer: 0
-  m_Name: Animal3D
+  m_Name: Animal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2070,9 +2070,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AliveState: {fileID: 182552}
   DeadState: {fileID: 134696}
+  MeshRenderer: {fileID: 13747446}
   Dead: 0
   Value: 0
-  MeshRenderer: {fileID: 13747446}
 --- !u!114 &11488744
 MonoBehaviour:
   m_ObjectHideFlags: 1
