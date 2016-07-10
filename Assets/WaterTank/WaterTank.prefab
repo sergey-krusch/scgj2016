@@ -680,7 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 939a0c538f81f654a87e8e00768c8fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FullScale: 1
+  FullScale: 5.263929
   EmptyScale: 0
   Value: 0
   Indicator: {fileID: 121594}
