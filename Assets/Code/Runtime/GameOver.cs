@@ -15,7 +15,6 @@ public class GameOver: MonoBehaviour
 
     public void Awake()
     {
-        Session.Score = -100;
         remainingTime = Pause;
         Color32 c;
         if (Session.Score >= 0)
