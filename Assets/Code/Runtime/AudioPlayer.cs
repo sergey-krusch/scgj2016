@@ -17,9 +17,12 @@ public static class AudioPlayer
         AudioOut.Instance.PlaySound("Audio/Sound/Dig", 1.0f, 0.0f);
     }
 
-    public static void Drink()
+    public static void Drink(bool success)
     {
-        AudioOut.Instance.PlaySound("Audio/Sound/Drink01", 1.0f, 0.0f);
+        if (success)
+            AudioOut.Instance.PlaySound("Audio/Sound/Drink01", 1.0f, 0.0f);
+        else
+            AudioOut.Instance.PlaySound("Audio/Sound/DrinkFailure01", 1.0f, 0.0f);
     }
 
     public static void Drag()
