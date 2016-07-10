@@ -34,7 +34,11 @@ MonoBehaviour:
   Digger:
     Speed: 0
     DigTime: 0.1
+    DigTimeMin: 0.05
+    DigTimeMax: 0.15
     ProducingRate: 0.35
+    ProducingRateMin: 0.25
+    ProducingRateMax: 0.45
   Score:
     EmptyScore: 20
     NormalScore: 50
