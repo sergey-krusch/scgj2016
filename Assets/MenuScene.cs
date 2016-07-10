@@ -7,10 +7,4 @@ public class MenuScene : MonoBehaviour {
 	void Start () {
 		AudioPlayer.MenuMusic ();
 	}
-
-	void Update () {
-		if (Input.GetButtonDown ("Fire1")) {
-			SceneManager.LoadScene ("Gameplay");
-		}
-	}
 }
