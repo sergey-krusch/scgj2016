@@ -30,6 +30,7 @@ public class Gameplay: MonoBehaviour
     public void Start()
     {
 		AudioPlayer.GameplayMusic();
+        AudioPlayer.FadeMusic();
     }
 
     public void Update()
@@ -67,6 +68,7 @@ public class Gameplay: MonoBehaviour
     {
         if (started)
             return;
+        AudioPlayer.UnfadeMusic();
         started = true;
         time = Root.Instance.LevelTime;
         TimeLabel.gameObject.SetActive(true);
@@ -103,6 +105,7 @@ public class Gameplay: MonoBehaviour
 
     private void GameOver()
     {
+        AudioPlayer.FadeMusic();
         var scfg = Root.Instance.Score;
         var acfg = Root.Instance.Animal;
         int s = 0;

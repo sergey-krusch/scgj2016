@@ -2,17 +2,47 @@
 
 public static class AudioPlayer
 {
+    public static string currentMusic = string.Empty;
+
     public static void GameplayMusic()
     {
-        AudioOut.Instance.PlayMusic("Audio/Music/Gameplay", 0.55f, 0.0f);
+        PlayMusic("Audio/Music/Gameplay", 0.55f);
     }
 
 	public static void MenuMusic()
 	{
-		if (AudioOut.Instance.CurrentMusic != null)
-			return;
-		AudioOut.Instance.PlayMusic("Audio/Music/Opening", 0.75f, 0.0f);
+        PlayMusic("Audio/Music/Opening", 0.75f);
 	}
+
+    private static void PlayMusic(string url, float volume)
+    {
+        if (currentMusic == url)
+            return;
+        currentMusic = url;
+        AudioOut.Instance.PlayMusic(url, volume, 0.0f);
+    }
+
+    public static void FadeMusic()
+    {
+        if (AudioOut.Instance.CurrentMusic == null)
+            return;
+        var musicObject = AudioOut.Instance.CurrentMusic.AudioSource.gameObject;
+        if (musicObject.GetComponent<AudioLowPassFilter>() != null)
+            return;
+        var filter = musicObject.AddComponent<AudioLowPassFilter>();
+        filter.cutoffFrequency = 1000;
+    }
+
+    public static void UnfadeMusic()
+    {
+        if (AudioOut.Instance.CurrentMusic == null)
+            return;
+        var musicObject = AudioOut.Instance.CurrentMusic.AudioSource.gameObject;
+        var filter = musicObject.GetComponent<AudioLowPassFilter>();
+        if (filter == null)
+            return;
+        Object.Destroy(filter);
+    }
 
     public static void Dig()
     {
