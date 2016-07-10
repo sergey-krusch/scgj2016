@@ -115,6 +115,8 @@ MonoBehaviour:
   Pause: 3
   ScoreLabel: {fileID: 663766263}
   TapAnywhereLabel: {fileID: 550264088}
+  PositiveScoreColor: {r: 0, g: 1, b: 0.21379304, a: 1}
+  NegativeScoreColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &202834161
 Transform:
   m_ObjectHideFlags: 0
@@ -405,7 +407,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Your score is: <color="#00FF00">{0}$</color>'
+  m_Text: 'Your score is: <color="{0}">$ {1}</color>'
 --- !u!222 &663766264
 CanvasRenderer:
   m_ObjectHideFlags: 0
