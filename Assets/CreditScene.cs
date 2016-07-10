@@ -2,12 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class MenuScene : MonoBehaviour {
-
-	void Start () {
-		AudioPlayer.MenuMusic ();
-	}
-
+public class CreditScene : MonoBehaviour {
 	void Update () {
 		if (Input.GetButtonDown ("Fire1")) {
 			SceneManager.LoadScene ("Gameplay");
