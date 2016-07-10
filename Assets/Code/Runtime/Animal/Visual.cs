@@ -7,10 +7,10 @@ namespace Animal
     {
 		public GameObject AliveState;
         public GameObject DeadState;
+        public SkinnedMeshRenderer MeshRenderer;
 
         public bool Dead;
         public float Value;
-		public SkinnedMeshRenderer MeshRenderer;
 
         public void Awake()
         {
@@ -23,14 +23,15 @@ namespace Animal
 
         public void Update()
         {
-            var cfg = Root.Instance.Animal;
 			if (Dead)
-				SwitchTo (DeadState);
+				SwitchTo(DeadState);
 			else
-			{
-				SwitchTo (AliveState);
-				MeshRenderer.SetBlendShapeWeight (1, (1f - Value) * 100f);
-			}
+				SwitchTo(AliveState);
+            if (!Dead)
+            {
+                MeshRenderer.SetBlendShapeWeight(0, Value * 100f);
+                MeshRenderer.SetBlendShapeWeight(1, (1f - Value) * 100f);
+            }
         }
 
         private void SwitchTo(GameObject go)
