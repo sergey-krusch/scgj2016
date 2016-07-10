@@ -8,7 +8,7 @@ public class GameOver: MonoBehaviour
 
     public float Pause;
     public Text ScoreLabel;
-    public Text TapAnywhereLabel;
+    public Button[] Buttons;
     public Color PositiveScoreColor;
     public Color NegativeScoreColor;
     private float remainingTime;
@@ -33,9 +33,18 @@ public class GameOver: MonoBehaviour
         remainingTime -= Time.deltaTime;
         if (remainingTime < 0)
         {
-            TapAnywhereLabel.gameObject.SetActive(true);
-            if (Input.GetMouseButtonDown(0))
-                SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
+            foreach (var b in Buttons)
+                b.interactable = true;
         }
+    }
+
+    public void ReplayClick()
+    {
+        SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
+    }
+
+    public void MenuClick()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }
