@@ -2,12 +2,15 @@
 
 public static class AudioPlayer
 {
-    public static void Music()
+    public static void GameplayMusic()
     {
-        if (AudioOut.Instance.CurrentMusic != null)
-            return;
         AudioOut.Instance.PlayMusic("Audio/Music/Gameplay", 0.75f, 0.0f);
     }
+
+	public static void MenuMusic()
+	{
+		AudioOut.Instance.PlayMusic("Audio/Music/Opening", 0.75f, 0.0f);
+	}
 
     public static void Dig()
     {

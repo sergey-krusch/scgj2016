@@ -29,7 +29,7 @@ public class Gameplay: MonoBehaviour
 
     public void Start()
     {
-        AudioPlayer.Music();
+		AudioPlayer.GameplayMusic();
     }
 
     public void Update()
