@@ -98,6 +98,7 @@ namespace Animal
             if (dead)
                 return;
             dead = true;
+            AudioPlayer.Die();
             ActionInvoker.Invoke(DiedEvent);
             SwitchToDeadState();
         }

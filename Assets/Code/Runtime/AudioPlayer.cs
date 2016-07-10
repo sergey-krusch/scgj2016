@@ -4,7 +4,7 @@ public static class AudioPlayer
 {
     public static void GameplayMusic()
     {
-        AudioOut.Instance.PlayMusic("Audio/Music/Gameplay", 0.75f, 0.0f);
+        AudioOut.Instance.PlayMusic("Audio/Music/Gameplay", 0.55f, 0.0f);
     }
 
 	public static void MenuMusic()
@@ -30,5 +30,10 @@ public static class AudioPlayer
     public static void Drop()
     {
         AudioOut.Instance.PlaySound("Audio/Sound/Drop", 1.0f, 0.0f);
+    }
+
+    public static void Die()
+    {
+        AudioOut.Instance.PlaySound("Audio/Sound/Die", 1.0f, 0.0f);
     }
 }
