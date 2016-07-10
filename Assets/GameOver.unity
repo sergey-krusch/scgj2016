@@ -115,6 +115,8 @@ MonoBehaviour:
   Pause: 3
   ScoreLabel: {fileID: 663766263}
   TapAnywhereLabel: {fileID: 550264088}
+  PositiveScoreColor: {r: 0, g: 1, b: 0.21379304, a: 1}
+  NegativeScoreColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &202834161
 Transform:
   m_ObjectHideFlags: 0
@@ -190,6 +192,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!1001 &415244902
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 454354, guid: 3e1b7be289b87da4b97c0177bfe88145, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 454354, guid: 3e1b7be289b87da4b97c0177bfe88145, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454354, guid: 3e1b7be289b87da4b97c0177bfe88145, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454354, guid: 3e1b7be289b87da4b97c0177bfe88145, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454354, guid: 3e1b7be289b87da4b97c0177bfe88145, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454354, guid: 3e1b7be289b87da4b97c0177bfe88145, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454354, guid: 3e1b7be289b87da4b97c0177bfe88145, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 454354, guid: 3e1b7be289b87da4b97c0177bfe88145, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3e1b7be289b87da4b97c0177bfe88145, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &550264086
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,8 +337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -385,7 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -405,7 +449,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Your score is: <color="#00FF00">{0}$</color>'
+  m_Text: 'Your score is: <color="{0}">$ {1}</color>'
 --- !u!222 &663766264
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -556,7 +600,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0.6117647, g: 0.83137256, b: 0.90588236, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -567,7 +611,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.740073
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -588,7 +632,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1296909022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.23, y: 2.11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

@@ -9,12 +9,23 @@ public class GameOver: MonoBehaviour
     public float Pause;
     public Text ScoreLabel;
     public Text TapAnywhereLabel;
+    public Color PositiveScoreColor;
+    public Color NegativeScoreColor;
     private float remainingTime;
 
     public void Awake()
     {
         remainingTime = Pause;
-        ScoreLabel.text = string.Format(ScoreLabel.text, Session.Score);
+        Color32 c;
+        if (Session.Score >= 0)
+            c = PositiveScoreColor;
+        else
+            c = NegativeScoreColor;
+        var cs = string.Format("#{0:X2}{1:X2}{2:X2}", c.r, c.g, c.b);
+        ScoreLabel.text = string.Format(
+            ScoreLabel.text, 
+            cs,
+            Session.Score);
     }
 
     public void Update()
