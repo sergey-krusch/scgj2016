@@ -9,6 +9,8 @@ public static class AudioPlayer
 
 	public static void MenuMusic()
 	{
+		if (AudioOut.Instance.CurrentMusic != null)
+			return;
 		AudioOut.Instance.PlayMusic("Audio/Music/Opening", 0.75f, 0.0f);
 	}
 
